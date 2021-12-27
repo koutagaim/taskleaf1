@@ -9,17 +9,16 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-     .navbar-brand Taskleaf
-
+    .navbar-brand Taskleaf
      ul.navbar-nav.ml-auto
         - if current_user
-          li.nav-item= link_to 'ã‚¿ã‚¹ã‚¯ä¸€è¦§', tasks_path, class: 'nav-link'
+          li.nav-item= link_to 'ƒ^ƒXƒNˆê——', tasks_path, class: 'nav-link'
           - if current_user.admin?
-            li.nav-item= link_to 'ãƒ¦ãƒ¼ã‚¶ãƒ¼ä¸€è¦§', admin_users_path, class: 'nav-link'
-          li.nav-item= link_to 'ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ', logout_path, method: :delete, class: 'nav-link'
+            li.nav-item= link_to 'ƒ†[ƒU[ˆê——', admin_users_path, class: 'nav-link'
+          li.nav-item= link_to 'ƒƒOƒAƒEƒg', logout_path, method: :delete, class: 'nav-link'
         - else
-          li.nav-item= link_to 'ãƒ­ã‚°ã‚¤ãƒ³', login_path, class: 'nav-link'
-    .container
+          li.nav-item= link_to 'ƒƒOƒCƒ“', login_path, class: 'nav-link'
+     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
       = yield

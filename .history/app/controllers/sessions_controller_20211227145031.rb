@@ -6,21 +6,19 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: session_params[:email])
 
-    if user&.authenticate(session_params[:password])
+    if user&authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'ãƒ­ã‚°ã‚¤ãƒ³ã—ã¾ã—ãŸã€‚'
-    else
+      redirect_to root_url, notice: 'ƒƒOƒCƒ“‚µ‚Ü‚µ‚½'
+    else 
       render :new
-    end
+    end  
   end
 
   def destroy
     reset_session
-    redirect_to root_url, notice: 'ãƒ­ã‚°ã‚¢ã‚¦ãƒˆã—ã¾ã—ãŸ'
+    redirect_to root_url, notice: 'ƒƒOƒAƒEƒg‚µ‚Ü‚µ‚½'
   end
-
   private
   def session_params
     params.require(:session).permit(:email, :password)
-  end
 end
