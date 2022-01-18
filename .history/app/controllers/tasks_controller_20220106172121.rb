@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # byebug
+  byebug
   def index
     @tasks = current_user.tasks
   end
@@ -29,10 +29,8 @@ class TasksController < ApplicationController
     task.destroy
     redirect_to tasks_url, notice: "タスク「#{task.name}」を削除しました。"
   end
-  
   def create
     @task = current_user.tasks.new(task_params)
-    byebug
     task.save!
     if @task.save
       redirect_to tasks_url, notice: "タスク「#{task.name}」を登録しました"

@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # byebug
+  
   def index
     @tasks = current_user.tasks
   end
